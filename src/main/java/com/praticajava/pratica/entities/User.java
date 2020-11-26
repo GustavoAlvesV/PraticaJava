@@ -40,7 +40,7 @@ public class User implements Serializable {
 	//(se JsonIgnore do lado 'muitos')=> nao carrega o objeto de um em muitos,  mas carrega o objeto de muitos em um
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "client")
+	@OneToMany(mappedBy = "client") 
 	private List<Order> orders = new ArrayList<>();
 	
 	public User() {
