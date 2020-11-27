@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 import com.praticajava.pratica.entities.Category;
 import com.praticajava.pratica.entities.Order;
 import com.praticajava.pratica.entities.OrderItem;
+import com.praticajava.pratica.entities.Payment;
 import com.praticajava.pratica.entities.Product;
 import com.praticajava.pratica.entities.User;
 import com.praticajava.pratica.entities.enums.OrderStatus;
@@ -104,6 +105,13 @@ public class TestConfig implements CommandLineRunner{
 		
 
 		orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
+		
+		//Relação 1-1 com paymente dependendo da Order, não preciso criar o Repository do paymente, o JPA vai criar.
+		
+		Payment pay1 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"), o1);
+		o1.setPayment(pay1);
+
+		orderRepository.save(o1);
 		
 		
 	}
