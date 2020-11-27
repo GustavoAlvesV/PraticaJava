@@ -40,4 +40,13 @@ public class UserService {
 		return obj.get();
 		
 	}
+	
+	//Metodo save já retorna o obj
+	public User insert(User obj) {
+		return repository.save(obj);
+	}
+	
+	public void delete(Long id) {
+		repository.deleteById(id);
+	}
 }
